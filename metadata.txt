@@ -1,0 +1,12 @@
+[general]
+name=Validador de Regras PostGIS
+description=Plugin QGIS que conecta a um bancos de dados Postgres/PostGIS e roda funções pré-estabelecidas no Postgres.
+version=0.2
+qgisMinimumVersion=3.0
+author=2CGEO
+email=estevezcodando@gmail.com
+about=Este plugin permite gerenciar conexões a bancos de dados PostGIS e executar regras de validação.
+category=Database
+icon=icon.png
+
+

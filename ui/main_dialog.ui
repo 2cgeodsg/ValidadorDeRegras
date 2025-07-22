@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainDialog</class>
+ <widget class="QDialog" name="MainDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Validador de Regras PostGIS</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_top_buttons">
+     <item>
+      <widget class="QComboBox" name="cmbSelectDatabase">
+       <property name="placeholderText">
+        <string>Selecionar banco de dados</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_1">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCreateConnection">
+       <property name="text">
+        <string>Gerenciar Conexões</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_db_info">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>80</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>Informações da Conexão:</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_db_info">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblDbName">
+        <property name="text">
+         <string>Nome da Conexão:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="lblDbNameValue">
+        <property name="text">
+         <string>N/A</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblHost">
+        <property name="text">
+         <string>Host:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="lblHostValue">
+        <property name="text">
+         <string>N/A</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_schema">
+     <item>
+      <widget class="QLabel" name="lblSchema">
+       <property name="text">
+        <string>Schema:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cmbSchema">
+       <property name="placeholderText">
+        <string>Selecione um schema</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_schema">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_functions">
+     <item>
+      <widget class="QLabel" name="lblFunction">
+       <property name="text">
+        <string>Função:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cmbFunction">
+       <property name="placeholderText">
+        <string>Selecione uma função</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnPlay">
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/plugins/validador_regras/icons/play.svg</normaloff>
+        </iconset>
+       </property>
+       <property name="styleSheet">
+        <string>QPushButton { background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-weight: bold; }</string>
+       </property>
+       <property name="text">
+        <string>▶ Play</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnStop">
+       <property name="maximumSize">
+        <size>
+         <width>40</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>:/plugins/validador_regras/icons/pause.svg</normaloff>
+        </iconset>
+       </property>
+       <property name="styleSheet">
+        <string>QPushButton { background-color: #f44336; color: white; border: none; border-radius: 5px; font-weight: bold; }</string>
+       </property>
+       <property name="text">
+        <string>⏸ Stop</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_functions">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout_progress">
+     <item row="0" column="0">
+      <widget class="QProgressBar" name="progressBar">
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="lblStatus">
+       <property name="text">
+        <string>Pronto</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="lblTimer">
+       <property name="text">
+        <string>Timer 00:00:00</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_logs">
+     <property name="title">
+      <string>Logs de Execução</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_logs">
+      <item>
+       <widget class="QTextEdit" name="txtLogs">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="font">
+         <font>
+          <family>Consolas</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_bottom_buttons">
+     <item>
+      <widget class="QPushButton" name="btnClearLog">
+       <property name="text">
+        <string>Limpar Log</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCopyLog">
+       <property name="text">
+        <string>Copiar Log</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnExportCsv">
+       <property name="text">
+        <string>Exportar CSV</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnTutorial">
+       <property name="text">
+        <string>Tutorial</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
